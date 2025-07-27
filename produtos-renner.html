@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Produtos - Renner</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: 'Inter', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    body.loaded {
+      opacity: 1;
+    }
+
+    h1 {
+      color: #0033cc;
+      margin-bottom: 20px;
+    }
+
+    .product-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      width: 100%;
+      max-width: 900px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 15px;
+      width: 200px;
+      text-align: center;
+      transition: transform 0.3s ease;
+      cursor: default;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-card img {
+      max-width: 100%;
+      height: 150px;
+      object-fit: contain;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .product-card h3 {
+      margin: 10px 0 5px 0;
+      font-size: 18px;
+      color: #0033cc;
+    }
+
+    .product-card p {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    .back-button {
+      margin-top: 30px;
+    }
+
+    .back-button a {
+      background-color: #4169e1;
+      color: white;
+      text-decoration: none;
+      padding: 12px 20px;
+      font-size: 15px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      display: inline-block;
+    }
+
+    .back-button a:hover {
+      background-color: #314b9a;
+      transform: translateY(-2px);
+    }
+  </style>
+
+  <script>
+    // Ativa a transição suave de entrada da página
+    window.addEventListener("DOMContentLoaded", () => {
+      document.body.classList.add("loaded");
+    });
+
+    // Suaviza a transição ao mudar de página
+    document.addEventListener("click", function (e) {
+      const link = e.target.closest("a");
+      if (link && link.href && !link.target && !link.href.startsWith("mailto")) {
+        e.preventDefault();
+        document.body.classList.remove("loaded");
+        setTimeout(() => {
+          window.location.href = link.href;
+        }, 300);
+      }
+    });
+  </script>
+</head>
+<body>
+  <h1>Produtos - Renner</h1>
+  <div class="product-list">
+    <div class="product-card">
+      <img src="produto1.jpg" alt="Produto 1" />
+      <h3>Camiseta Básica</h3>
+      <p>R$ 49,90</p>
+    </div>
+    <div class="product-card">
+      <img src="produto2.jpg" alt="Produto 2" />
+      <h3>Calça Jeans</h3>
+      <p>R$ 119,90</p>
+    </div>
+    <div class="product-card">
+      <img src="produto3.jpg" alt="Produto 3" />
+      <h3>Jaqueta Casual</h3>
+      <p>R$ 199,90</p>
+    </div>
+    <!-- Adicione mais produtos conforme precisar -->
+  </div>
+
+  <div class="back-button">
+    <a href="paginainicial.html">⬅ Voltar para Home</a>
+  </div>
+</body>
+</html>

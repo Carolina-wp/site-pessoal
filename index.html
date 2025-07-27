@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem-Vindo</title>
+    
+    <!-- Link para a biblioteca de Partículas -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@1.36.0/tsparticles.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Efeito de Partículas no fundo */
+        body {
+            background: url('https://www.estadosecapitaisdobrasil.com/wp-content/uploads/2015/11/Cristo-Redentor.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        /* Efeito de Entrada */
+        body.loaded {
+            opacity: 1;
+        }
+
+        .popup {
+            background: rgba(240, 240, 255, 0.9);
+            padding: 20px;
+            width: 400px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .popup h1 {
+            color: #4A69BD;
+            animation: slideUp 1s ease-in-out forwards;
+        }
+
+        .popup p {
+            margin: 15px 0;
+            color: #333;
+            animation: fadeInText 2s ease-in-out forwards;
+        }
+
+        .popup button {
+            background: #4A69BD;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: background 0.3s ease, transform 0.3s ease;
+            animation: bounceIn 1s ease-in-out forwards;
+        }
+
+        .popup button:hover {
+            background: #3B5998;
+            transform: scale(1.1); /* Aumenta o botão ao passar o mouse */
+        }
+
+        /* Animação de Fade-in para o texto */
+        @keyframes fadeInText {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Animação de Slide para o título */
+        @keyframes slideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Efeito de Bounce no botão */
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Partículas no fundo */
+        #tsparticles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+
+        /* Animação de transição entre páginas */
+        .transition {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .transition.loaded {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="transition">
+    <!-- Popup de boas-vindas -->
+    <div class="popup">
+        <h1>Bem-Vindo</h1>
+        <p>Somos especialistas em conectar você com os melhores serviços do Rio de Janeiro. Se está em busca de produtos e serviços, veio ao lugar certo!</p>
+        <p>Clique no botão abaixo e descubra tudo o que nossa plataforma pode oferecer.</p>
+        <button onclick="transitionPage()">Clique aqui</button>
+    </div>
+
+    <!-- Partículas no fundo -->
+    <div id="tsparticles"></div>
+
+    <!-- Adicionando o som de transição -->
+    <audio id="click-sound" src="https://www.soundjay.com/button/beep-07.wav" preload="auto"></audio>
+
+    <script>
+        // Animação de carregamento do site
+        window.addEventListener("DOMContentLoaded", () => {
+            document.body.classList.add("loaded");
+        });
+
+        // Função para tocar o som quando o botão for clicado
+        function playClickSound() {
+            const audio = document.getElementById('click-sound');
+            audio.play();
+        }
+
+        // Função para fazer a transição suave entre páginas
+        function transitionPage() {
+            playClickSound();  // Toca o som
+            document.body.classList.remove("loaded");
+            document.body.classList.add("transition");
+            setTimeout(() => {
+                window.location.href = 'paginainicial.html';  // Redireciona após o tempo da animação
+            }, 1000); // Delay para esperar a animação
+        }
+
+        // Partículas
+        tsParticles.load("tsparticles", {
+            particles: {
+                number: {
+                    value: 50,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: "#ffffff"
+                },
+                shape: {
+                    type: "circle"
+                },
+                opacity: {
+                    value: 0.5,
+                    random: true
+                },
+                size: {
+                    value: 3,
+                    random: true
+                },
+                move: {
+                    enable: true,
+                    speed: 3,
+                    direction: "random",
+                    random: true,
+                    straight: false,
+                    out_mode: "out"
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

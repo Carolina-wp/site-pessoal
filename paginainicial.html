@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bom de Busca RJ</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <button id="toggle-dark-mode">🌙 Alternar Modo Escuro</button>
+
+  <div class="header"></div>
+  <div class="info-bar">
+    📍 Encontre lojas por região e aproveite as melhores ofertas do RJ!
+  </div>
+
+  <div class="nav">
+    <button onclick="location.href='paginainicial.html'">Página Inicial</button>
+    <button onclick="location.href='contato.html'">Contato</button>
+    <button onclick="location.href='quem-somos.html'">Quem Somos</button>
+    <button onclick="location.href='trabalhe-conosco.html'">Trabalhe Conosco</button>
+  </div>
+
+  <div class="main-container">
+    <div class="regions">
+      <h3>Regiões</h3>
+      <ul>
+        <li onclick="redirectToRegion('Itaboraí')">Itaboraí</li>
+        <li onclick="redirectToRegion('Maricá')">Maricá</li>
+        <li onclick="redirectToRegion('Niterói')">Niterói</li>
+        <li onclick="redirectToRegion('Rio de Janeiro')">Rio de Janeiro</li>
+        <li onclick="redirectToRegion('São Gonçalo')">São Gonçalo</li>
+      </ul>
+    </div>
+
+    <div class="ads-container">
+      <!-- Exemplo de loja com pop-up e múltiplas imagens no slideshow -->
+      <div class="ad-box" onclick="abrirPopup(
+        'RENNER',
+        '📞 30044700<br><a href=\'https://maps.app.goo.gl/X9QDcq872Q48LRef6\' target=\'_blank\'>🗺️ Ver no mapa</a><br><a href=\'https://wa.me/5521988888888\' target=\'_blank\'>💬 WhatsApp</a>',
+        ['frente.jpeg', 'renner logo.jpg', 'clienterenne.jpg']
+      )">
+        <img src="renner.jpg" alt="Logo da Renner" />
+        <div class="title">RENNER</div>
+        <div class="phone">📞 30044700</div>
+        <div class="subtitle">📍 Av. Pres. Kennedy 425, lj. 332 (Piso), São Gonçalo, RJ, 24445-000 </div>
+          <a href="produtos-renner.html" class="ver-produtos-link" onclick="event.stopPropagation()">🛍️ Ver Produtos</a>
+        <div><a href="https://maps.app.goo.gl/LvrHquWGEpz3LFt1A" target="_blank">🗺️ Ver no mapa</a></div>
+      </div>
+
+
+      <div class="ad-box" onclick="abrirPopup(
+        'Centauro',
+        '📞 30044700<br><a href=\'https://maps.app.goo.gl/LvrHquWGEpz3LFt1A\' target=\'_blank\'>🗺️ Ver no mapa</a><br><a href=\'https://wa.me/5521988888888\' target=\'_blank\'>💬 WhatsApp</a>',
+        ['frentecentauro.jpg', 'interna-centauro1.jpg', 'fachada-centauro.jpg']
+      )">
+        <img src="CENTAURO.jpg" alt="Logo da Centauro" />
+        <div class="title">Centauro</div>
+        <div class="phone">📞 30044700</div>
+        <div><a href="https://maps.app.goo.gl/LvrHquWGEpz3LFt1A" target="_blank">📍 Ver no mapa</a></div>
+      </div>
+
+      <!-- Repita esse modelo para outras lojas, usando array de imagens -->
+      <div class="ad-box" onclick="abrirPopup(
+        'RENNER',
+        '📞 30044700<br><a href=\'https://maps.app.goo.gl/LvrHquWGEpz3LFt1A\' target=\'_blank\'>📍 Ver no mapa</a><br><a href=\'https://wa.me/5521988888888\' target=\'_blank\'>💬 WhatsApp</a>',
+        ['renner.jpg']
+      )">
+        <img src="renner.jpg" alt="Logo da Renner" />
+        <div class="title">RENNER</div>
+        <div class="phone">📞 30044700</div>
+        <div><a href="https://maps.app.goo.gl/LvrHquWGEpz3LFt1A" target="_blank">📍 Ver no mapa</a></div>
+      </div>
+
+      <!-- Continue para as outras lojas -->
+    </div>
+  </div>
+
+  <button id="chatButton">💬</button>
+
+  <div id="chatWindow" style="display:none;">
+    <h4>Ajuda Online</h4>
+    <div id="chatMessages"></div>
+
+    <div id="chatSuggestions">
+      <div class="suggestion" onclick="fillSuggestion('Quero divulgar minha loja')">Quero divulgar minha loja</div>
+      <div class="suggestion" onclick="fillSuggestion('Como enviar meu currículo?')">Como enviar meu currículo?</div>
+      <div class="suggestion" onclick="fillSuggestion('Preciso de suporte')">Preciso de suporte</div>
+      <div class="suggestion" onclick="fillSuggestion('Quero saber o preço')">Quero saber o preço</div>
+    </div>
+  </div>
+
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <span class="close-btn" onclick="fecharPopup()">&times;</span>
+      <h2 id="popup-title"></h2>
+      <div id="popup-slideshow" class="slideshow-container"></div>
+      <div id="popup-info"></div>
+    </div>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lojas em Niterói</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header {
+      background: url('LOGOTIPO.JPG') no-repeat center center/cover;
+      height: 30vh;
+      width: 100%;
+    }
+
+    .nav {
+      background-color: #ff0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 10px 0;
+    }
+
+    .nav button {
+      background-color: #4169e1;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      margin: 5px;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .nav button:hover {
+      background-color: #314b9a;
+    }
+
+    .title {
+      text-align: center;
+      padding: 20px;
+      font-size: 28px;
+      color: #333;
+    }
+
+    .stores {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .store-card {
+      background-color: white;
+      width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.2s ease;
+    }
+
+    .store-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .store-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .store-content {
+      padding: 15px;
+    }
+
+    .store-content h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      color: #2c3e50;
+    }
+
+    .store-content p {
+      margin: 5px 0;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .store-content a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 12px;
+      background-color: #4169e1;
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .store-content a:hover {
+      background-color: #314b9a;
+    }
+
+    @media (max-width: 768px) {
+      .stores {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header"></div>
+
+  <div class="nav">
+    <button onclick="window.location.href='paginainicial.html'">Página Inicial</button>
+    <button onclick="window.location.href='contato.html'">Contato</button>
+    <button onclick="window.location.href='quem-somos.html'">Quem Somos</button>
+    <button onclick="window.location.href='trabalhe-conosco.html'">Trabalhe Conosco</button>
+  </div>
+
+  <div class="title">Lojas em Niterói</div>
+
+  <div class="stores">
+    <!-- Loja 1 -->
+    <div class="store-card">
+      <img src="https://via.placeholder.com/300x180?text=Loja+1" alt="Loja 1">
+      <div class="store-content">
+        <h3>Loja Sol & Mar</h3>
+        <p>Roupas de praia e acessórios</p>
+        <p>📞 (21) 98765-4321</p>
+        <a href="https://wa.me/5521987654321" target="_blank">WhatsApp</a>
+        <a href="https://maps.google.com/?q=Praia+de+Icaraí,+Niterói" target="_blank">Ver no Mapa</a>
+      </div>
+    </div>
+
+    <!-- Loja 2 -->
+    <div class="store-card">
+      <img src="https://via.placeholder.com/300x180?text=Loja+2" alt="Loja 2">
+      <div class="store-content">
+        <h3>Mercado Central</h3>
+        <p>Alimentos e bebidas</p>
+        <p>📞 (21) 91234-5678</p>
+        <a href="https://wa.me/5521912345678" target="_blank">WhatsApp</a>
+        <a href="https://maps.google.com/?q=Rua+das+Flores,+Niterói" target="_blank">Ver no Mapa</a>
+      </div>
+    </div>
+
+    <!-- Loja 3 -->
+    <div class="store-card">
+      <img src="https://via.placeholder.com/300x180?text=Loja+3" alt="Loja 3">
+      <div class="store-content">
+        <h3>TechNiterói</h3>
+        <p>Assistência técnica e informática</p>
+        <p>📞 (21) 99876-1234</p>
+        <a href="https://wa.me/5521998761234" target="_blank">WhatsApp</a>
+        <a href="https://maps.google.com/?q=Avenida+Roberto+Silveira,+Niterói" target="_blank">Ver no Mapa</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
+

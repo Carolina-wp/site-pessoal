@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trabalhe Conosco - Bom de Busca RJ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #e0eafc, #cfdef3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .job-card {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      width: 100%;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .job-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 25px;
+    }
+
+    p {
+      text-align: center;
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, textarea, select {
+      padding: 12px 14px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+      transition: border 0.2s ease;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: #4169e1;
+    }
+
+    button {
+      background-color: #d1e141;
+      color: white;
+      border: none;
+      padding: 14px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #314b9a;
+    }
+  </style>
+
+
+
+<style>
+    body {
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+    body.loaded {
+      opacity: 1;
+    }
+  </style>
+  
+  <script>
+    // Adiciona a classe "loaded" quando a página termina de carregar
+    window.addEventListener("DOMContentLoaded", () => {
+      document.body.classList.add("loaded");
+    });
+  
+    // Suaviza a transição ao mudar de página
+    document.addEventListener("click", function (e) {
+      const link = e.target.closest("a");
+      if (link && link.href && !link.target && !link.href.startsWith("mailto")) {
+        e.preventDefault();
+        document.body.classList.remove("loaded");
+        setTimeout(() => {
+          window.location.href = link.href;
+        }, 300);
+      }
+    });
+  </script>
+  
+
+
+
+
+</head>
+<body>
+  <div class="job-card">
+    <h2>Envie seu currículo</h2>
+    <p>Preencha o formulário abaixo e entraremos em contato quando houver uma vaga compatível com seu perfil.</p>
+    <form action="https://formspree.io/f/mzzrrnbd" method="POST">
+      <input type="text" name="nome" placeholder="Nome completo" required />
+      <input type="email" name="email" placeholder="Seu e-mail" required />
+      <input type="tel" name="telefone" placeholder="Telefone" />
+
+      <select name="area" required>
+        <option value="">Área de interesse</option>
+        <option value="atendimento">Atendimento</option>
+        <option value="vendas">Vendas</option>
+        <option value="tecnologia">Tecnologia</option>
+        <option value="marketing">Marketing</option>
+      </select>
+
+      <textarea name="mensagem" rows="4" placeholder="Mensagem (opcional)"></textarea>
+      <input type="url" name="curriculo" placeholder="Link do currículo (ex: https://drive.google.com/)" />
+
+      <button type="submit">Enviar</button>
+
+
+
+    </form>
+
+
+
+<!-- Botão de Voltar fora do formulário -->
+<div style="display: flex; justify-content: center; margin-top: 10px;">
+  <a href="paginainicial.html" style="
+    background-color: #4169e1;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    font-size: 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  "
+  onmouseover="this.style.backgroundColor='#314b9a'; this.style.transform='translateY(-2px)'"
+  onmouseout="this.style.backgroundColor='#4169e1'; this.style.transform='translateY(0)'">
+    ⬅ Voltar
+  </a>
+
+
+
+  </div>
+</body>
+</html>

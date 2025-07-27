@@ -1,0 +1,498 @@
+/* Estilo base */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #333;
+  transition: background-color 0.3s, color 0.3s, opacity 0.5s ease-in-out;
+  opacity: 0;
+}
+
+body.loaded {
+  opacity: 1;
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+body.dark-mode .ad-box {
+  background-color: #1e1e1e;
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+body.dark-mode a {
+  color: #81d4fa;
+}
+
+body.dark-mode button#toggle-dark-mode {
+  background-color: #f0f0f0;
+  color: #121212;
+}
+
+button#toggle-dark-mode {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 8px 12px;
+  border: none;
+  background-color: #333;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.header {
+  background: url('LOGOTIPO.jpg') no-repeat center center/cover;
+  height: 30vh;
+  width: 100%;
+}
+
+.nav {
+  background-color: #ff0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px 0;
+  width: 100%;
+}
+
+.nav button {
+  background-color: #4169e1;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 5px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.nav button:hover {
+  background-color: #314b9a;
+}
+
+.info-bar {
+  background-color: #0033cc;
+  color: white;
+  text-align: center;
+  padding: 5px;
+  font-size: 14px;
+  width: 100%;
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 80%;
+  margin-top: 20px;
+}
+
+.regions {
+  background: white;
+  width: 220px;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.6s ease;
+}
+
+.regions h3 {
+  text-align: center;
+  color: #0033cc;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.regions ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.regions li {
+  background: #f5f7ff;
+  padding: 10px 15px;
+  margin: 8px 0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.regions li:hover {
+  background-color: #e1e7ff;
+  transform: translateX(4px);
+}
+
+.regions li::before {
+  content: "\1F4CD";
+  font-size: 16px;
+}
+
+body.dark-mode .regions {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+}
+
+body.dark-mode .regions li {
+  background-color: #2a2a2a;
+  color: #f0f0f0;
+}
+
+body.dark-mode .regions li:hover {
+  background-color: #3a3a3a;
+}
+
+.ads-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  margin-left: 20px;
+  justify-content: center;
+}
+
+.ad-box {
+  width: 200px;
+  min-height: 200px;
+  background-color: white;
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 12px;
+  font-size: 14px;
+  transition: box-shadow 0.3s ease;
+}
+
+/* Imagem da loja */
+.ad-box img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+/* Texto da loja */
+.ad-box .title,
+.ad-box .phone,
+.ad-box .subtitle,
+.ad-box a {
+  font-size: 13px;
+  margin-bottom: 8px;
+  color: inherit;
+  font-weight: normal;
+}
+
+/* No modo escuro, texto fica branco automaticamente */
+body.dark-mode .ad-box .title,
+body.dark-mode .ad-box .phone,
+body.dark-mode .ad-box .subtitle,
+body.dark-mode .ad-box a {
+  color: #ffffff !important;
+}
+
+/* Slideshow/Carrossel dentro do popup */
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  margin: 15px auto;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.slideshow-container img {
+  width: 100%;
+  display: none;
+  border-radius: 10px;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.slideshow-container img.active {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav button {
+    width: 80%;
+  }
+
+  .header {
+    height: 20vh;
+  }
+
+  .main-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ads-container {
+    margin-left: 0;
+  }
+}
+
+/* Estilos do Pop-up das Lojas */
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.popup-content {
+  background-color: white;
+  color: #333;
+  margin: 10% auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 12px;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  animation: fadeInUp 0.3s ease;
+}
+
+.popup-content h2 {
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #0033cc;
+}
+
+.popup-content a {
+  color: #0066ff;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 8px;
+}
+
+body.dark-mode .popup-content {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+body.dark-mode .popup-content h2 {
+  color: #81d4fa;
+}
+
+body.dark-mode .popup-content a {
+  color: #81d4fa;
+}
+
+body.dark-mode .close-btn {
+  color: #ccc;
+}
+
+body.dark-mode .close-btn:hover {
+  color: white;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #666;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #000;
+}
+
+/* Botão e janela do chat */
+#chatButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #0066ff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 28px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#chatButton:hover {
+  background-color: #0052cc;
+}
+
+/* Botão e janela do chat */
+#chatButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #0066ff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 28px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#chatButton:hover {
+  background-color: #0052cc;
+}
+
+/* JANELA DO CHAT */
+#chatWindow {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 320px;
+  height: 480px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* <-- ESSA LINHA FOI ADICIONADA */
+  font-family: Arial, sans-serif;
+  /* display: none; */ /* controle via JS */
+}
+
+#chatWindow h4 {
+  margin: 0;
+  padding: 10px;
+  background-color: #0066ff;
+  color: white;
+  text-align: center;
+  font-weight: normal;
+  flex-shrink: 0;
+}
+
+/* CONTAINER DAS MENSAGENS */
+#chatMessages {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 10px;
+  font-size: 14px;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #ddd;
+  order: 1;
+}
+
+#chatMessages .user {
+  text-align: right;
+  margin-bottom: 8px;
+  color: #0066ff;
+}
+
+#chatMessages .bot {
+  text-align: left;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+/* CONTAINER DAS SUGESTÕES FIXADAS NO RODAPÉ */
+#chatSuggestions {
+  flex-shrink: 0;
+  padding: 10px;
+  background: #fff;
+  border-top: 1px solid #ddd;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  order: 2;
+}
+
+.suggestion {
+  background-color: #e1e1e6;
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  user-select: none;
+  transition: background-color 0.2s ease;
+}
+
+.suggestion:hover {
+  background-color: #c5c7cd;
+}
+
+/* Chat no modo escuro */
+body.dark-mode #chatWindow {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode #chatWindow h4 {
+  background-color: #0066ff;
+  color: #ffffff;
+}
+
+body.dark-mode #chatMessages {
+  background-color: #121212;
+  color: #f0f0f0;
+  border-bottom: 1px solid #444;
+}
+
+body.dark-mode #chatMessages .user {
+  color: #81d4fa;
+}
+
+body.dark-mode #chatMessages .bot {
+  color: #ccc;
+}
+
+body.dark-mode #chatSuggestions {
+  background-color: #1e1e1e;
+  border-top: 1px solid #444;
+}
+
+body.dark-mode .suggestion {
+  background-color: #2a2a2a;
+  border: 1px solid #555;
+  color: #ccc;
+}
+
+body.dark-mode .suggestion:hover {
+  background-color: #3a3a3a;
+}

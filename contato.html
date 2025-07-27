@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fale Conosco - Bom de Busca RJ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #e0eafc, #cfdef3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    body.loaded {
+      opacity: 1;
+    }
+
+    .contact-card {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+      width: 100%;
+      transition: transform 0.3s ease;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-4px);
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 25px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, textarea {
+      padding: 12px 14px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+      transition: border 0.2s;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #4169e1;
+    }
+
+    button {
+      background-color: #d1e141;
+      color: white;
+      border: none;
+      padding: 14px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #314b9a;
+    }
+
+    .success-message {
+      display: none;
+      text-align: center;
+      margin-top: 15px;
+      color: #2e7d32;
+      font-weight: 600;
+    }
+
+    .info {
+      margin-top: 20px;
+      font-size: 14px;
+      text-align: center;
+      color: #555;
+    }
+
+    .info i {
+      color: #4169e1;
+      margin-right: 8px;
+    }
+
+    /* Estilo do botão de voltar */
+    .back-button {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    .back-button a {
+      background-color: #4169e1;
+      color: white;
+      text-decoration: none;
+      padding: 12px 20px;
+      font-size: 15px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .back-button a:hover {
+      background-color: #314b9a;
+      transform: translateY(-2px);
+    }
+  </style>
+
+  <script>
+    // Adiciona a classe "loaded" quando a página termina de carregar
+    window.addEventListener("DOMContentLoaded", () => {
+      document.body.classList.add("loaded");
+    });
+
+    // Suaviza a transição ao mudar de página
+    document.addEventListener("click", function (e) {
+      const link = e.target.closest("a");
+      if (link && link.href && !link.target && !link.href.startsWith("mailto")) {
+        e.preventDefault();
+        document.body.classList.remove("loaded");
+        setTimeout(() => {
+          window.location.href = link.href;
+        }, 300);
+      }
+    });
+  </script>
+</head>
+<body>
+  <div class="contact-card">
+    <h2>Fale Conosco</h2>
+    <form action="https://formspree.io/f/mwpoogrn" method="POST">
+      <input type="text" name="nome" placeholder="Seu nome" required />
+      <input type="email" name="email" placeholder="Seu e-mail" required />
+      <textarea name="mensagem" rows="5" placeholder="Digite sua mensagem..." required></textarea>
+      <button type="submit"><i class="fa-solid fa-paper-plane"></i> Enviar Mensagem</button>
+    </form>
+    <div class="success-message" id="sucesso">✅ Mensagem enviada com sucesso!</div>
+    <div class="info">
+      <p><i class="fa-solid fa-envelope"></i> suporte@bomdebuscarj.com</p>
+      <p><i class="fa-brands fa-whatsapp"></i> (21) 99999-9999</p>
+    </div>
+    <!-- Botão de Voltar com o mesmo estilo fornecido -->
+    <div class="back-button">
+      <a href="paginainicial.html">⬅ Voltar</a>
+    </div>
+  </div>
+
+  <script>
+    // Se você quiser mostrar a mensagem de sucesso após enviar, adicione este script:
+    document.querySelector('form').addEventListener('submit', function() {
+      document.getElementById('sucesso').style.display = 'block';
+      setTimeout(() => {
+        document.getElementById('sucesso').style.display = 'none';
+      }, 4000);
+    });
+  </script>
+</body>
+</html>
+

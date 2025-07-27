@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quem Somos - Bom de Busca RJ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+      min-height: 100vh;
+      opacity: 0;
+      transition: opacity 0.6s ease-in-out;
+    }
+
+    body.loaded {
+      opacity: 1;
+    }
+
+    .container {
+      background: white;
+      max-width: 700px;
+      width: 100%;
+      padding: 30px 25px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      animation: fadeInUp 1s ease;
+    }
+
+    h1 {
+      color: #2f4f4f;
+      font-size: 28px;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    p {
+      font-size: 16px;
+      color: #444;
+      line-height: 1.6;
+      margin-top: 15px;
+    }
+
+    .back-button {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .back-button a {
+      background-color: #4169e1;
+      color: white;
+      text-decoration: none;
+      padding: 12px 20px;
+      font-size: 15px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .back-button a:hover {
+      background-color: #314b9a;
+      transform: translateY(-2px);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+  <script>
+    // Entrada suave
+    window.addEventListener("DOMContentLoaded", () => {
+      document.body.classList.add("loaded");
+    });
+
+    // Saída suave ao clicar em links
+    document.addEventListener("click", function (e) {
+      const link = e.target.closest("a");
+      if (link && link.href && !link.target && !link.href.startsWith("mailto")) {
+        e.preventDefault();
+        document.body.classList.remove("loaded");
+        setTimeout(() => {
+          window.location.href = link.href;
+        }, 300);
+      }
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Quem Somos</h1>
+    <p>
+      O Bom de Busca RJ é uma plataforma comprometida em conectar pessoas aos melhores serviços e profissionais do estado do Rio de Janeiro.
+    </p>
+    <p>
+      Nascemos com o propósito de facilitar a vida de quem procura qualidade, confiança e praticidade. Trabalhamos diariamente para oferecer uma experiência simples, rápida e eficiente.
+    </p>
+    <p>
+      Acreditamos no poder da conexão e da confiança. Por isso, selecionamos com cuidado os prestadores de serviço que fazem parte da nossa plataforma.
+    </p>
+    <p>
+      Nosso compromisso é ser o elo entre quem oferece e quem procura, contribuindo para um Rio mais conectado e com serviços acessíveis a todos.
+    </p>
+
+    <div class="back-button">
+      <a href="paginainicial.html">⬅ Voltar</a>
+    </div>
+  </div>
+</body>
+</html>
