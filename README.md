@@ -25,5 +25,5 @@ Este projeto tem como objetivo ser uma vitrine profissional, onde compartilho me
 
 ## 📬 Contato
 
-Você pode me encontrar no Instagram [@Carol.code](https://www.instagram.com/Carol.code)  
+Você pode me encontrar no Instagram [@morais.code](https://www.instagram.com/morais.code/)  
 Ou pelo GitHub: [Carolina-wp](https://github.com/Carolina-wp)
